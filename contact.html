@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="./script.js"></script>
+    <script type="text/javascript" src="./googlesheet.js"></script>
+    <title>Contact</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111111;
+        }
+
+        .hero {
+            position: fixed;
+            width: 100%;
+            background-color: #111111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .hero h1 {
+            color: white;
+            padding-right: 30rem;
+            font-size: 35px;
+            font-weight: 700;
+        }
+
+        .hero li {
+            list-style: none;
+            padding-right: 2rem;
+        }
+
+        .hero li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 18px;
+            transition: 0.2s ease-in-out;
+        }
+
+        .hero li a:hover {
+            color: #2ecc71;
+        }
+
+        .hero .span1 {
+            color: #2ecc71;
+        }
+
+        .hero li button {
+            margin-left: 4rem;
+            background-color: #111111;
+            color: #ffffff;
+            border-style: none;
+            border: 1px solid #ffffff;
+            border-radius: 50px;
+            padding: 0.7rem;
+            transition: 0.2s ease-in-out;
+        }
+
+        .hero li button:hover {
+            background-color: #2ecc71;
+            color: #111111;
+        }
+
+        .hero li button:active {
+            font-size: 10px;
+        }
+
+        .footer-main {
+            background-color: #1a1a1a;
+            position: relative;
+            top: 10rem;
+            padding: 20px;
+        }
+
+        .container2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #111111;
+            color: #ffffff;
+            padding: 30px;
+            margin-top: 50px;
+            border-radius: 20px;
+        }
+
+        .container2 .p-span {
+            font-size: 16px;
+            border-style: none;
+            border: 1px solid white;
+            border-radius: 50px;
+            width: 250px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .container2 .p-span::before {
+            position: absolute;
+            top: 4.5px;
+            left: 10px;
+            content: ' ';
+            height: 10px;
+            width: 10px;
+            background-color: #00cc55;
+            border-radius: 50px;
+        }
+
+        .container2 pre span {
+            margin-left: 40px;
+        }
+
+        .container2 h2 {
+            font-size: 80px;
+            width: 800px;
+            margin-bottom: 40px;
+            position: relative;
+            left: 100px;
+        }
+
+        .container2 p {
+            font-size: 21px;
+            padding-bottom: 40px;
+            position: relative;
+        }
+
+        .container2 p::after {
+            position: absolute;
+            top: 2rem;
+            right: -0.5rem;
+            content: ' ';
+            height: 1px;
+            width: 18rem;
+            background-color: white;
+        }
+
+        .link3 {
+            position: relative;
+            top: 40px;
+            margin-bottom: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .link3 a {
+            text-decoration: none;
+            color: wheat;
+            margin-left: 20px;
+        }
+
+        .section {
+            position: relative;
+            top: 100px;
+            background-color: #111111;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .heading h1 {
+            font-size: 100px;
+            margin-bottom: 30px;
+            background: linear-gradient(to right, rgb(0, 113, 243), rgb(235, 7, 235));
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .grid-box {
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+
+        .grid-box p {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .grid-box h2 {
+            font-size: 80px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .grid-box input {
+            height: 40px;
+            width: 30rem;
+            border-style: none;
+            border-radius: 10px;
+            background-color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .grid-box textarea {
+            height: 40px;
+            width: 30rem;
+            border-style: none;
+            border-radius: 10px;
+            background-color: #1a1a1a;
+        }
+
+        .grid-box button {
+            position: relative;
+            top: 2rem;
+            right: 5.5rem;
+            border-style: none;
+            border-radius: 10px;
+            height: 40px;
+            width: 80px;
+            background: linear-gradient(to right, rgb(0, 113, 243), rgb(235, 7, 235));
+            font-size: 17px;
+            color: white;
+            transition: 0.2s ease-in;
+        }
+
+        .grid-box input[type=text] {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: white;
+            padding-left: 20px;
+        }
+
+        .grid-box textarea {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: white;
+            padding-left: 20px;
+        }
+
+        .grid-box button:hover {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="hero">
+        <h1 class="heading1">Portfolio</h1>
+        <li>
+            <a href="./index.html" target="_main">Home</a>
+        </li>
+        <li>
+            <a href="./about.html" target="_main">About</a>
+        </li>
+        <li>
+            <a href="./projects.html" target="_main">Projects</a>
+        </li>
+        <li>
+            <a href="./services.html" target="_main">Services</a>
+        </li>
+        <li>
+            <a href="./contact.html" target="_main"><span class="span1">Contact</span></a>
+        </li>
+        <li>
+            <button type="button" onclick="clickButton.play();">Contact Me</button>
+        </li>
+    </nav>
+
+    <section class="section">
+        <div class="heading">
+            <h1>CONTACT</h1>
+        </div>
+
+        <div class="grid-box">
+            <div>
+                <h2>I'd love to hear from you!</h2>
+            </div>
+
+            <form>
+                <p>Name</p>
+                <input type="text" name="your-name" placeholder="Name" required>
+
+                <p>Surname</p>
+                <input type="text" name="your-surname" placeholder="Surnamame" required>
+
+                <p>Email Address</p>
+                <input type="text" name="your-email" placeholder="Email" required>
+
+                <p>Your Budget</p>
+                <input type="text" name="your-budget" placeholder="Budget">
+
+                <p>Description</p>
+                <textarea rows="5" cols="40" name="your-description" placeholder="Description"></textarea>
+
+                <button type="submit" id="submit" onclick="clickButton.play();">Submit</button>
+            </form>
+
+        </div>
+    </section>
+
+    <footer class="footer-main">
+        <div class="container2">
+            <div class="p-span">
+                <pre><span>Have Project in Mind?</span></pre>
+            </div>
+
+            <div>
+                <h2>Let’s Turn your Ideas into Reality</h2>
+            </div>
+
+            <div>
+                <p>lawarnaaree@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="link3">
+            <a href="./index.html" target="_main">Home</a>
+            <a href="./about.html" target="_main">About</a>
+            <a href="./projects.html" target="_main">Project</a>
+            <a href="./services.html" target="_main">Services</a>
+            <a href="./contact.html" target="_main">Contact</a>
+        </div>
+    </footer>
+</body>
+
+</html>
